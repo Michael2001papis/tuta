@@ -1,5 +1,5 @@
 :root {
-  /* Luxury Modern Design */
+  /* Luxury Modern Design - DARK MODE (default) */
   --font-size: 16px;
   --font-heading: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
   --font-body: 'Inter', 'Heebo', -apple-system, sans-serif;
@@ -30,6 +30,26 @@
   --space-2xl: 3.5rem;
 }
 
+/* Light Mode - אתר לבן */
+[data-theme="light"],
+[data-theme="inverted"] {
+  --color-bg: #fafafa;
+  --color-text: #1a1a1a;
+  --color-text-soft: #666666;
+  --color-primary: #b8960a;
+  --color-primary-light: #d4af37;
+  --color-primary-dark: #8b6914;
+  --color-accent: #f5f2ed;
+  --color-accent-strong: #e8e2da;
+  --color-border: #d4d0c8;
+  --color-cream: #fdfbf8;
+  --color-gold-accent: #d4af37;
+  --shadow-soft: 0 2px 12px rgba(26, 26, 26, 0.06);
+  --shadow-card: 0 4px 24px rgba(26, 26, 26, 0.08);
+  --shadow-elevated: 0 8px 40px rgba(26, 26, 26, 0.12);
+  --shadow-glow: 0 0 24px rgba(184, 150, 10, 0.15);
+}
+
 [data-theme="dark"] {
   --color-bg: #0a0a0a;
   --color-text: #f5f2ed;
@@ -45,11 +65,6 @@
   --shadow-soft: 0 2px 16px rgba(212, 175, 55, 0.08);
   --shadow-card: 0 8px 32px rgba(212, 175, 55, 0.12);
   --shadow-elevated: 0 16px 48px rgba(212, 175, 55, 0.16);
-}
-
-[data-theme="inverted"] {
-  --color-bg: #fafafa;
-  --color-text: #0a0a0a;
 }
 
 * {

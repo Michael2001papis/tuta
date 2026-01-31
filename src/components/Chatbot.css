@@ -55,6 +55,12 @@
   animation: chatbotSlideIn 0.3s ease;
 }
 
+[data-theme="light"] .chatbot-window,
+[data-theme="inverted"] .chatbot-window {
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.15);
+}
+
 @keyframes chatbotSlideIn {
   from {
     opacity: 0;
@@ -218,6 +224,12 @@
   border: 1px solid rgba(212, 175, 55, 0.15);
 }
 
+[data-theme="light"] .message.bot .message-bubble,
+[data-theme="inverted"] .message.bot .message-bubble {
+  background: rgba(245, 242, 237, 0.9);
+  border: 1px solid rgba(184, 150, 10, 0.2);
+}
+
 .message.user .message-bubble {
   background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
   color: var(--color-bg);
@@ -333,6 +345,12 @@
   font-size: 0.9375rem;
   font-family: var(--font-body);
   transition: all 0.2s ease;
+}
+
+[data-theme="light"] .chatbot-input,
+[data-theme="inverted"] .chatbot-input {
+  background: rgba(245, 242, 237, 0.8);
+  border: 1px solid rgba(184, 150, 10, 0.25);
 }
 
 .chatbot-input:focus {
