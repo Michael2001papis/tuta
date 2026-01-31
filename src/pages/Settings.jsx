@@ -48,12 +48,11 @@ export default function Settings() {
         </div>
 
         <div className="setting-item">
-          <label>צבעים</label>
-          <p className="setting-hint">שחור-לבן או היפוך צבעים לנוחות בעיות ראייה.</p>
+          <label>ערכת צבעים</label>
+          <p className="setting-hint">בחר בין אתר כהה (שחור-זהב) לאתר בהיר (לבן-זהב).</p>
           <select value={colorTheme} onChange={e => setColorTheme(e.target.value)}>
-            <option value="normal">רגיל</option>
-            <option value="dark">כהה</option>
-            <option value="inverted">היפוך (שחור לבן)</option>
+            <option value="normal">כהה (שחור-זהב)</option>
+            <option value="inverted">בהיר (לבן-זהב)</option>
           </select>
         </div>
       </section>

@@ -4,9 +4,9 @@ import { useSettings } from '../context/SettingsContext'
 import './Home.css'
 
 const socialLinks = [
-  { name: 'Instagram', url: 'https://instagram.com' },
-  { name: 'Facebook', url: 'https://facebook.com' },
-  { name: 'TikTok', url: 'https://tiktok.com' },
+  { name: 'Instagram', url: 'https://instagram.com/sophia_cosmetics' },
+  { name: 'Facebook', url: 'https://facebook.com/sophiacosmetics' },
+  { name: 'TikTok', url: 'https://tiktok.com/@sophia_cosmetics' },
 ]
 
 const services = [

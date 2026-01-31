@@ -71,9 +71,9 @@ export default function Contact() {
           <span>050-8535941</span>
           <small>לחיצה לחיוג</small>
         </a>
-        <a href="mailto:abc@gmail.com" className="contact-card email">
+        <a href="mailto:sophiacosmetics@gmail.com" className="contact-card email">
           <span className="icon">✉️</span>
-          <span>abc@gmail.com</span>
+          <span>sophiacosmetics@gmail.com</span>
         </a>
       </div>
 

@@ -49,7 +49,7 @@ export default function Header() {
       setPassword('')
       navigate('/user')
     } else {
-      setLoginError('שם משתמש או סיסמה שגויים. שם המשתמש: SV123456')
+      setLoginError('שם משתמש או סיסמה שגויים.')
     }
   }
 
