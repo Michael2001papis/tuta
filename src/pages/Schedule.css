@@ -1,0 +1,91 @@
+.schedule-page h1 {
+  margin-bottom: 1rem;
+}
+
+.schedule-desc {
+  margin-bottom: 1.5rem;
+}
+
+.editing-notice {
+  background: #fff3cd;
+  color: #856404;
+  padding: 0.75rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.edit-actions {
+  margin-bottom: 1rem;
+}
+
+.edit-toggle {
+  padding: 0.5rem 1rem;
+  background: var(--color-primary);
+  color: #fff;
+  border-radius: 6px;
+}
+
+.schedule-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 1rem;
+}
+
+.schedule-day {
+  background: var(--color-accent);
+  padding: 1rem;
+  border-radius: 10px;
+  min-height: 100px;
+}
+
+.schedule-day.non-working {
+  opacity: 0.7;
+  background: #e8e8e8;
+}
+
+.day-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.date-num {
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+.toggle-work {
+  background: none;
+  font-size: 1rem;
+  padding: 0.2rem;
+}
+
+.day-content {
+  font-size: 0.95rem;
+  min-height: 2.5em;
+  cursor: pointer;
+}
+
+.day-content:hover {
+  text-decoration: underline;
+}
+
+.non-working-text {
+  font-style: italic;
+  opacity: 0.8;
+}
+
+.edit-inline input {
+  width: 100%;
+  padding: 0.4rem;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+}
+
+@media (max-width: 600px) {
+  .schedule-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}

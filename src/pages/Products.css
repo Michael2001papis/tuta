@@ -1,0 +1,113 @@
+.products-page h1 {
+  margin-bottom: 1rem;
+}
+
+.products-desc {
+  margin-bottom: 1rem;
+}
+
+.edit-actions {
+  margin-bottom: 0.75rem;
+}
+
+.edit-toggle {
+  padding: 0.5rem 1rem;
+  background: var(--color-primary);
+  color: #fff;
+  border-radius: 6px;
+}
+
+.edit-hint {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-bottom: 1rem;
+}
+
+.editing-notice {
+  background: #fff3cd;
+  color: #856404;
+  padding: 0.75rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.product-card {
+  background: var(--color-accent);
+  padding: 1rem;
+  border-radius: 10px;
+  position: relative;
+}
+
+.product-serial {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+.product-card h3 {
+  font-size: 1rem;
+  margin-bottom: 0.35rem;
+  padding-top: 0.5rem;
+}
+
+.price {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.desc {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-bottom: 0.5rem;
+}
+
+.edit-btn {
+  padding: 0.35rem 0.75rem;
+  background: var(--color-primary);
+  color: #fff;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.product-edit input,
+.product-edit textarea {
+  width: 100%;
+  padding: 0.4rem;
+  margin-bottom: 0.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+}
+
+.product-edit label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.char-count {
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+.product-edit button {
+  margin-top: 0.5rem;
+  padding: 0.4rem 1rem;
+  background: var(--color-primary);
+  color: #fff;
+  border-radius: 6px;
+}
+
+@media (max-width: 480px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+}

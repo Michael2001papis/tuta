@@ -1,0 +1,75 @@
+.copyright-page {
+  max-width: 800px;
+}
+
+.copyright-content pre {
+  white-space: pre-wrap;
+  font-family: inherit;
+  line-height: 1.7;
+}
+
+.copyright-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.copyright-modal {
+  background: var(--color-bg);
+  padding: 1.5rem;
+  border-radius: 12px;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.copyright-modal h2 {
+  margin-bottom: 0.5rem;
+}
+
+.copyright-modal > p {
+  margin-bottom: 1rem;
+}
+
+.copyright-scroll {
+  flex: 1;
+  overflow-y: auto;
+  max-height: 250px;
+  padding: 1rem;
+  background: var(--color-accent);
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.copyright-scroll pre {
+  white-space: pre-wrap;
+  font-size: 0.9rem;
+}
+
+.agree-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+
+.copyright-modal button {
+  padding: 0.7rem;
+  background: var(--color-primary);
+  color: #fff;
+  border-radius: 8px;
+  width: 100%;
+}
+
+.copyright-modal button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

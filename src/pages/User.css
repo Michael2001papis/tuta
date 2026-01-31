@@ -1,0 +1,54 @@
+.user-page h1 {
+  margin-bottom: 0.5rem;
+}
+
+.user-intro {
+  margin-bottom: 2rem;
+}
+
+.user-section {
+  background: var(--color-accent);
+  padding: 1.25rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.user-section h2 {
+  font-size: 1.1rem;
+  margin-bottom: 0.35rem;
+}
+
+.section-hint {
+  font-size: 0.95rem;
+  opacity: 0.9;
+  margin-bottom: 0.75rem;
+}
+
+.user-link {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: var(--color-primary);
+  color: #fff;
+  border-radius: 6px;
+  transition: opacity 0.2s;
+}
+
+.user-link:hover {
+  opacity: 0.9;
+}
+
+.toggle-row {
+  margin-top: 0.5rem;
+}
+
+.toggle-row label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.toggle-row input[type="checkbox"] {
+  width: 1.1rem;
+  height: 1.1rem;
+}
