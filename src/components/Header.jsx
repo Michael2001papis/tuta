@@ -61,7 +61,7 @@ export default function Header() {
         <Link to="/" className="logo" aria-label="סופיה - קוסמטיקה קלינית">
           {showImg ? (
             <img
-              src="/logo.svg"
+              src="/assets/logo.png"
               alt="סופיה"
               className="logo-img"
               onError={() => setLogoImgFailed(true)}
@@ -88,9 +88,13 @@ export default function Header() {
         <div className="header-actions">
           <Link to="/copyright" className="btn-copyright">{t('copyright')}</Link>
           {isLoggedIn ? (
-            <button className="btn-login" onClick={() => { logout(); navigate('/') }}>{t('logout')}</button>
+            <button className="btn-login" onClick={() => { logout(); navigate('/') }}>
+              <span>{t('logout')}</span>
+            </button>
           ) : (
-            <button className="btn-login" onClick={() => setShowLogin(true)}>{t('login')}</button>
+            <button className="btn-login" onClick={() => setShowLogin(true)}>
+              <span>{t('login')}</span>
+            </button>
           )}
         </div>
       </nav>

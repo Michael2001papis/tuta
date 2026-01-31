@@ -10,6 +10,7 @@ import Copyright from './pages/Copyright'
 import Products from './pages/Products'
 import BeforeAfter from './pages/BeforeAfter'
 import './App.css'
+import './pages/GlobalStyles.css'
 
 export default function App() {
   return (

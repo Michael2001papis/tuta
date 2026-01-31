@@ -1,11 +1,11 @@
 .home {
-  animation: fadeIn 0.5s ease;
+  animation: fadeInUp 0.7s ease;
 }
 
-@keyframes fadeIn {
+@keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(6px);
+    transform: translateY(30px);
   }
   to {
     opacity: 1;
@@ -17,72 +17,101 @@
   text-align: center;
   padding: var(--space-2xl) var(--space-lg);
   margin-bottom: var(--space-2xl);
+  position: relative;
 }
 
 .hero::before {
   content: '';
   display: block;
-  width: 48px;
-  height: 2px;
-  background: var(--color-gold-accent);
-  margin: 0 auto var(--space-lg);
-  opacity: 0.9;
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--color-gold-accent), transparent);
+  margin: 0 auto var(--space-xl);
+  box-shadow: var(--shadow-glow);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
 }
 
 .hero h1 {
   font-family: var(--font-heading);
-  font-size: 2rem;
-  font-weight: 600;
-  margin-bottom: var(--space-md);
-  color: var(--color-text);
-  letter-spacing: 0.02em;
-  line-height: 1.35;
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: var(--space-lg);
+  letter-spacing: 0.03em;
+  line-height: 1.2;
+  text-shadow: 0 4px 16px rgba(212, 175, 55, 0.3);
 }
 
 .subtitle {
-  font-size: 1.0625rem;
+  font-size: 1.125rem;
   color: var(--color-text-soft);
-  max-width: 480px;
+  max-width: 560px;
   margin: 0 auto;
-  line-height: 1.75;
+  line-height: 1.8;
+  font-weight: 300;
 }
 
 .certificates,
 .work-preview,
 .social-section {
-  background: var(--color-cream);
+  background: rgba(26, 23, 21, 0.6);
+  backdrop-filter: blur(12px);
   padding: var(--space-xl);
   border-radius: var(--radius);
   margin-bottom: var(--space-lg);
-  border: 1px solid var(--color-border);
-  box-shadow: var(--shadow-soft);
-  transition: box-shadow 0.2s;
-  border-right: 3px solid var(--color-gold-accent);
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  box-shadow: var(--shadow-card);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.certificates::before,
+.work-preview::before,
+.social-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--color-gold-accent), var(--color-primary));
+  box-shadow: 0 0 20px var(--color-gold-accent);
 }
 
 .certificates:hover,
 .work-preview:hover,
 .social-section:hover {
-  box-shadow: var(--shadow-card);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-elevated);
+  border-color: rgba(212, 175, 55, 0.3);
 }
 
 .certificates h2,
 .work-preview h2,
 .social-section h2 {
   font-family: var(--font-heading);
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin-bottom: var(--space-sm);
-  color: var(--color-text);
-  letter-spacing: 0.01em;
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: var(--space-md);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 0.02em;
 }
 
 .certificates p,
 .work-preview p,
 .social-section p {
   color: var(--color-text-soft);
-  font-size: 0.9375rem;
-  line-height: 1.75;
+  font-size: 1rem;
+  line-height: 1.8;
+  font-weight: 300;
 }
 
 .social-links {
@@ -90,30 +119,52 @@
   gap: var(--space-md);
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: var(--space-md);
+  margin-top: var(--space-lg);
 }
 
 .social-btn {
   display: inline-flex;
   align-items: center;
   gap: var(--space-sm);
-  padding: 0.65rem 1.15rem;
-  background: var(--color-primary-dark);
-  color: #fff;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
+  color: var(--color-bg);
   border-radius: var(--radius-sm);
   font-size: 0.9375rem;
-  font-weight: 500;
-  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+}
+
+.social-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .social-btn:hover {
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-card);
-  background: var(--color-primary);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: var(--shadow-glow);
+}
+
+.social-btn:hover::before {
+  opacity: 1;
+}
+
+.social-btn span {
+  position: relative;
+  z-index: 1;
 }
 
 .social-icon {
-  font-size: 1.1rem;
+  font-size: 1.25rem;
+  position: relative;
+  z-index: 1;
 }
 
 @media (max-width: 480px) {
@@ -122,7 +173,7 @@
   }
 
   .hero h1 {
-    font-size: 1.625rem;
+    font-size: 2rem;
   }
 
   .certificates,

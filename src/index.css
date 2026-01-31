@@ -1,53 +1,55 @@
 :root {
-  /* Design tokens – עסק שמכבד את עצמו */
+  /* Luxury Modern Design */
   --font-size: 16px;
-  --font-heading: 'Cormorant Garamond', Georgia, serif;
-  --font-body: 'Heebo', 'Segoe UI', Tahoma, sans-serif;
+  --font-heading: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Inter', 'Heebo', -apple-system, sans-serif;
 
-  --color-bg: #fbfaf8;
-  --color-text: #1f1f1f;
-  --color-text-soft: #555;
-  --color-primary: #9a7b4f;
-  --color-primary-light: #b8966a;
-  --color-primary-dark: #6b5344;
-  --color-accent: #f3efe9;
-  --color-accent-strong: #e8e2da;
-  --color-border: #e2ddd6;
-  --color-cream: #f8f6f2;
-  --color-gold-accent: #b8860b;
-  --shadow-soft: 0 1px 3px rgba(31, 31, 31, 0.06);
-  --shadow-card: 0 4px 20px rgba(31, 31, 31, 0.07);
-  --shadow-elevated: 0 8px 32px rgba(31, 31, 31, 0.09);
-  --radius: 10px;
-  --radius-sm: 6px;
+  --color-bg: #0a0a0a;
+  --color-text: #f5f2ed;
+  --color-text-soft: #b8b0a3;
+  --color-primary: #d4af37;
+  --color-primary-light: #f4e4b7;
+  --color-primary-dark: #b8960a;
+  --color-accent: #1a1715;
+  --color-accent-strong: #2a2522;
+  --color-border: #3a3330;
+  --color-cream: #15120f;
+  --color-gold-accent: #e8c547;
+  --color-rose-gold: #e8b4a3;
+  --shadow-soft: 0 2px 16px rgba(212, 175, 55, 0.08);
+  --shadow-card: 0 8px 32px rgba(212, 175, 55, 0.12);
+  --shadow-elevated: 0 16px 48px rgba(212, 175, 55, 0.16);
+  --shadow-glow: 0 0 30px rgba(212, 175, 55, 0.2);
+  --radius: 16px;
+  --radius-sm: 10px;
   --space-xs: 0.25rem;
   --space-sm: 0.5rem;
   --space-md: 1rem;
   --space-lg: 1.5rem;
-  --space-xl: 2rem;
-  --space-2xl: 2.5rem;
+  --space-xl: 2.5rem;
+  --space-2xl: 3.5rem;
 }
 
 [data-theme="dark"] {
-  --color-bg: #1a1a1a;
-  --color-text: #f0ebe3;
-  --color-text-soft: #b8b2a8;
-  --color-primary: #b8966a;
-  --color-primary-light: #d4b896;
-  --color-primary-dark: #9a7b4f;
-  --color-accent: #2a2826;
-  --color-accent-strong: #363432;
-  --color-border: #404040;
-  --color-cream: #242220;
-  --color-gold-accent: #c9a227;
-  --shadow-soft: 0 1px 3px rgba(0, 0, 0, 0.25);
-  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.35);
-  --shadow-elevated: 0 8px 32px rgba(0, 0, 0, 0.4);
+  --color-bg: #0a0a0a;
+  --color-text: #f5f2ed;
+  --color-text-soft: #b8b0a3;
+  --color-primary: #d4af37;
+  --color-primary-light: #f4e4b7;
+  --color-primary-dark: #b8960a;
+  --color-accent: #1a1715;
+  --color-accent-strong: #2a2522;
+  --color-border: #3a3330;
+  --color-cream: #15120f;
+  --color-gold-accent: #e8c547;
+  --shadow-soft: 0 2px 16px rgba(212, 175, 55, 0.08);
+  --shadow-card: 0 8px 32px rgba(212, 175, 55, 0.12);
+  --shadow-elevated: 0 16px 48px rgba(212, 175, 55, 0.16);
 }
 
 [data-theme="inverted"] {
-  --color-bg: #000000;
-  --color-text: #ffffff;
+  --color-bg: #fafafa;
+  --color-text: #0a0a0a;
 }
 
 * {
@@ -65,12 +67,13 @@ body {
   line-height: 1.7;
   min-height: 100vh;
   direction: rtl;
-  transition: background 0.3s, color 0.3s;
+  transition: background 0.5s ease, color 0.5s ease;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 ::selection {
-  background: rgba(154, 123, 79, 0.2);
+  background: rgba(212, 175, 55, 0.3);
   color: var(--color-text);
 }
 
@@ -85,22 +88,24 @@ body.font-large { font-size: 20px; }
 a {
   color: inherit;
   text-decoration: none;
+  transition: all 0.3s ease;
 }
 
 a:focus-visible {
   outline: 2px solid var(--color-primary);
-  outline-offset: 2px;
+  outline-offset: 3px;
 }
 
 button {
   cursor: pointer;
   font-family: inherit;
   border: none;
+  transition: all 0.3s ease;
 }
 
 button:focus-visible {
   outline: 2px solid var(--color-primary);
-  outline-offset: 2px;
+  outline-offset: 3px;
 }
 
 ul, ol {
@@ -109,6 +114,13 @@ ul, ol {
 
 h1, h2, h3 {
   font-family: var(--font-heading);
-  font-weight: 600;
-  letter-spacing: 0.01em;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+h1 {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }

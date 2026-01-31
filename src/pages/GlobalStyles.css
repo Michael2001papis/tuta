@@ -1,0 +1,107 @@
+.settings-page h1,
+.contact-page h1,
+.schedule-page h1,
+.products-page h1,
+.user-page h1,
+.before-after-page h1,
+.copyright-page h1 {
+  font-family: var(--font-heading);
+  margin-bottom: var(--space-lg);
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: none;
+}
+
+.settings-section,
+.contact-card,
+.contact-form,
+.ratings-section,
+.schedule-day,
+.product-card,
+.user-section,
+.ba-card,
+.copyright-modal,
+.editing-notice {
+  background: rgba(26, 23, 21, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  box-shadow: var(--shadow-card);
+  transition: all 0.3s ease;
+}
+
+.settings-section:hover,
+.contact-card:hover,
+.schedule-day:hover,
+.product-card:hover,
+.user-section:hover,
+.ba-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-elevated);
+  border-color: rgba(212, 175, 55, 0.25);
+}
+
+button,
+.btn-primary,
+.submit-btn,
+.edit-toggle,
+.edit-btn,
+.user-link {
+  background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
+  color: var(--color-bg);
+  font-weight: 600;
+  box-shadow: var(--shadow-soft);
+  position: relative;
+  overflow: hidden;
+  border: none;
+}
+
+button::before,
+.btn-primary::before,
+.submit-btn::before,
+.edit-toggle::before,
+.edit-btn::before,
+.user-link::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+button:hover::before,
+.btn-primary:hover::before,
+.submit-btn:hover::before,
+.edit-toggle:hover::before,
+.edit-btn:hover::before,
+.user-link:hover::before {
+  opacity: 1;
+}
+
+input,
+textarea,
+select {
+  background: rgba(10, 10, 10, 0.6);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
+}
+
+h2 {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
