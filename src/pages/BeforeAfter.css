@@ -1,53 +1,69 @@
 .before-after-page h1 {
-  margin-bottom: 0.5rem;
+  font-family: var(--font-heading);
+  margin-bottom: var(--space-sm);
+  font-size: 1.75rem;
 }
 
 .before-after-page > p {
-  margin-bottom: 1.5rem;
+  margin-bottom: var(--space-lg);
+  color: var(--color-text-soft);
+  font-size: 0.9375rem;
 }
 
 .empty-state {
-  padding: 2rem;
+  padding: var(--space-xl);
   text-align: center;
-  opacity: 0.8;
+  color: var(--color-text-soft);
+  font-size: 0.9375rem;
 }
 
 .add-section {
-  margin-bottom: 1.5rem;
+  margin-bottom: var(--space-lg);
 }
 
 .add-form {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  max-width: 400px;
+  gap: var(--space-sm);
+  max-width: 380px;
 }
 
 .add-form input {
-  padding: 0.5rem;
+  padding: var(--space-sm) var(--space-md);
   border: 1px solid var(--color-border);
-  border-radius: 6px;
+  border-radius: var(--radius-sm);
+  font-size: 0.9375rem;
+  background: var(--color-bg);
 }
 
 .add-form button {
-  padding: 0.5rem;
-  background: var(--color-primary);
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-primary-dark);
   color: #fff;
-  border-radius: 6px;
+  border-radius: var(--radius-sm);
   max-width: 120px;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.add-form button:hover {
+  background: var(--color-primary);
 }
 
 .before-after-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1.5rem;
+  gap: var(--space-lg);
 }
 
 .ba-card {
-  background: var(--color-accent);
-  padding: 1rem;
-  border-radius: 12px;
+  background: var(--color-cream);
+  padding: var(--space-lg);
+  border-radius: var(--radius);
   overflow: hidden;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-soft);
+  border-right: 3px solid var(--color-gold-accent);
 }
 
 .ba-card h3 {
@@ -65,8 +81,8 @@
   position: relative;
   aspect-ratio: 1;
   overflow: hidden;
-  border-radius: 8px;
-  background: #e8e8e8;
+  border-radius: var(--radius-sm);
+  background: var(--color-accent);
 }
 
 .ba-label {
@@ -88,10 +104,16 @@
 }
 
 .remove-btn {
-  margin-top: 0.75rem;
-  padding: 0.35rem 0.75rem;
-  background: #c00;
+  margin-top: var(--space-md);
+  padding: var(--space-xs) var(--space-md);
+  background: #a52a2a;
   color: #fff;
-  border-radius: 6px;
-  font-size: 0.9rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.remove-btn:hover {
+  background: #8b2222;
 }

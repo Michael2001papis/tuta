@@ -1,30 +1,43 @@
 .contact-page {
-  max-width: 600px;
+  max-width: 560px;
+}
+
+.contact-page h1 {
+  font-family: var(--font-heading);
+  margin-bottom: var(--space-md);
+  font-size: 1.75rem;
 }
 
 .contact-intro {
-  margin-bottom: 1.5rem;
+  margin-bottom: var(--space-lg);
+  color: var(--color-text-soft);
+  font-size: 0.9375rem;
+  line-height: 1.7;
 }
 
 .contact-info-cards {
   display: flex;
-  gap: 1rem;
+  gap: var(--space-md);
   flex-wrap: wrap;
-  margin-bottom: 2rem;
+  margin-bottom: var(--space-xl);
 }
 
 .contact-card {
   flex: 1;
-  min-width: 150px;
-  padding: 1rem;
-  background: var(--color-accent);
-  border-radius: 10px;
+  min-width: 140px;
+  padding: var(--space-lg);
+  background: var(--color-cream);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  border-right: 3px solid var(--color-gold-accent);
   text-align: center;
-  transition: transform 0.2s;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: var(--shadow-soft);
 }
 
 .contact-card:hover {
-  transform: translateY(-3px);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card);
 }
 
 .contact-card .icon {
@@ -46,10 +59,18 @@
 .contact-form input,
 .contact-form textarea {
   width: 100%;
-  padding: 0.6rem;
+  padding: 0.65rem 0.85rem;
   border: 1px solid var(--color-border);
-  border-radius: 6px;
+  border-radius: var(--radius-sm);
   font-size: 1rem;
+  background: var(--color-bg);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(154, 123, 79, 0.1);
 }
 
 .form-row {
@@ -68,10 +89,12 @@
 }
 
 .ratings-section {
-  background: var(--color-accent);
-  padding: 1rem;
-  border-radius: 10px;
-  margin-bottom: 1rem;
+  background: var(--color-cream);
+  padding: var(--space-lg);
+  border-radius: var(--radius);
+  margin-bottom: var(--space-md);
+  border: 1px solid var(--color-border);
+  border-right: 3px solid var(--color-gold-accent);
 }
 
 .ratings-section h3 {
@@ -99,15 +122,18 @@
 }
 
 .submit-btn {
-  padding: 0.8rem 2rem;
-  background: var(--color-primary);
+  padding: 0.75rem 1.75rem;
+  background: var(--color-primary-dark);
   color: #fff;
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   font-size: 1rem;
+  font-weight: 500;
+  transition: background 0.2s, box-shadow 0.2s;
 }
 
 .submit-btn:hover {
-  background: var(--color-primary-dark);
+  background: var(--color-primary);
+  box-shadow: var(--shadow-card);
 }
 
 .success-overlay {
@@ -123,10 +149,12 @@
 
 .success-modal {
   background: var(--color-bg);
-  padding: 2rem;
-  border-radius: 12px;
+  padding: var(--space-xl);
+  border-radius: var(--radius);
   text-align: center;
   max-width: 90vw;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-elevated);
 }
 
 .success-icon {

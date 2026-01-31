@@ -1,47 +1,62 @@
 .products-page h1 {
-  margin-bottom: 1rem;
+  font-family: var(--font-heading);
+  margin-bottom: var(--space-md);
+  font-size: 1.75rem;
 }
 
 .products-desc {
-  margin-bottom: 1rem;
+  margin-bottom: var(--space-md);
+  color: var(--color-text-soft);
+  font-size: 0.9375rem;
 }
 
 .edit-actions {
-  margin-bottom: 0.75rem;
+  margin-bottom: var(--space-md);
 }
 
 .edit-toggle {
-  padding: 0.5rem 1rem;
-  background: var(--color-primary);
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-primary-dark);
   color: #fff;
-  border-radius: 6px;
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.edit-toggle:hover {
+  background: var(--color-primary);
 }
 
 .edit-hint {
-  font-size: 0.9rem;
-  opacity: 0.8;
-  margin-bottom: 1rem;
+  font-size: 0.875rem;
+  color: var(--color-text-soft);
+  margin-bottom: var(--space-md);
 }
 
 .editing-notice {
-  background: #fff3cd;
-  color: #856404;
-  padding: 0.75rem;
-  border-radius: 8px;
-  margin-bottom: 1rem;
+  background: var(--color-cream);
+  color: var(--color-primary-dark);
+  padding: var(--space-md);
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--space-md);
+  border: 1px solid var(--color-border);
+  border-right: 3px solid var(--color-gold-accent);
 }
 
 .products-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 1rem;
+  gap: var(--space-md);
 }
 
 .product-card {
-  background: var(--color-accent);
-  padding: 1rem;
-  border-radius: 10px;
+  background: var(--color-cream);
+  padding: var(--space-lg);
+  border-radius: var(--radius);
   position: relative;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-soft);
+  border-right: 3px solid var(--color-gold-accent);
 }
 
 .product-serial {
@@ -70,20 +85,28 @@
 }
 
 .edit-btn {
-  padding: 0.35rem 0.75rem;
-  background: var(--color-primary);
+  padding: var(--space-xs) var(--space-md);
+  background: var(--color-primary-dark);
   color: #fff;
-  border-radius: 6px;
-  font-size: 0.9rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.edit-btn:hover {
+  background: var(--color-primary);
 }
 
 .product-edit input,
 .product-edit textarea {
   width: 100%;
-  padding: 0.4rem;
-  margin-bottom: 0.5rem;
+  padding: var(--space-sm) var(--space-md);
+  margin-bottom: var(--space-sm);
   border: 1px solid var(--color-border);
-  border-radius: 4px;
+  border-radius: var(--radius-sm);
+  font-size: 0.9375rem;
+  background: var(--color-bg);
 }
 
 .product-edit label {
@@ -99,11 +122,17 @@
 }
 
 .product-edit button {
-  margin-top: 0.5rem;
-  padding: 0.4rem 1rem;
-  background: var(--color-primary);
+  margin-top: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-primary-dark);
   color: #fff;
-  border-radius: 6px;
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.product-edit button:hover {
+  background: var(--color-primary);
 }
 
 @media (max-width: 480px) {

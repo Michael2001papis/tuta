@@ -1,51 +1,63 @@
 .user-page h1 {
-  margin-bottom: 0.5rem;
+  font-family: var(--font-heading);
+  margin-bottom: var(--space-sm);
+  font-size: 1.75rem;
 }
 
 .user-intro {
-  margin-bottom: 2rem;
+  margin-bottom: var(--space-xl);
+  color: var(--color-text-soft);
+  line-height: 1.7;
 }
 
 .user-section {
-  background: var(--color-accent);
-  padding: 1.25rem;
-  border-radius: 10px;
-  margin-bottom: 1rem;
+  background: var(--color-cream);
+  padding: var(--space-lg);
+  border-radius: var(--radius);
+  margin-bottom: var(--space-md);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-soft);
+  border-right: 3px solid var(--color-gold-accent);
 }
 
 .user-section h2 {
+  font-family: var(--font-heading);
   font-size: 1.1rem;
-  margin-bottom: 0.35rem;
+  margin-bottom: var(--space-xs);
 }
 
 .section-hint {
-  font-size: 0.95rem;
-  opacity: 0.9;
-  margin-bottom: 0.75rem;
+  font-size: 0.9375rem;
+  color: var(--color-text-soft);
+  margin-bottom: var(--space-md);
+  line-height: 1.6;
 }
 
 .user-link {
   display: inline-block;
-  padding: 0.5rem 1rem;
-  background: var(--color-primary);
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-primary-dark);
   color: #fff;
-  border-radius: 6px;
-  transition: opacity 0.2s;
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+  transition: background 0.2s, box-shadow 0.2s;
 }
 
 .user-link:hover {
-  opacity: 0.9;
+  background: var(--color-primary);
+  box-shadow: var(--shadow-soft);
 }
 
 .toggle-row {
-  margin-top: 0.5rem;
+  margin-top: var(--space-sm);
 }
 
 .toggle-row label {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: var(--space-sm);
   cursor: pointer;
+  font-size: 0.9375rem;
 }
 
 .toggle-row input[type="checkbox"] {
