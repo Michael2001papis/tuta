@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import Header from './components/Header'
+import Chatbot from './components/Chatbot'
 import Home from './pages/Home'
 import Settings from './pages/Settings'
 import Contact from './pages/Contact'
@@ -30,6 +31,7 @@ export default function App() {
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </main>
+        <Chatbot />
       </div>
     </BrowserRouter>
   )
