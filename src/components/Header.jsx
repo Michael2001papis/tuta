@@ -38,7 +38,9 @@ export default function Header() {
   return (
     <header className="header">
       <nav className="nav">
-        <Link to="/" className="logo">סופיה</Link>
+        <Link to="/" className="logo" aria-label="סופיה - קוסמטיקה קלינית">
+          <img src="/logo.svg" alt="סופיה" className="logo-img" onError={(e) => { e.target.onerror = null; e.target.src = '/logo.png' }} />
+        </Link>
         <ul className="nav-links">
           {navItems.map(({ path, label }) => (
             <li key={path}>
