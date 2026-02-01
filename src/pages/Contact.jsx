@@ -66,9 +66,9 @@ export default function Contact() {
       </p>
 
       <div className="contact-info-cards">
-        <a href="tel:0508535941" className="contact-card phone">
+        <a href="tel:0535305330" className="contact-card phone">
           <span className="icon">📞</span>
-          <span>050-8535941</span>
+          <span>053-5305330</span>
           <small>לחיצה לחיוג</small>
         </a>
         <a href="mailto:sophiacosmetics@gmail.com" className="contact-card email">
