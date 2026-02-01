@@ -227,8 +227,9 @@ export default function Chatbot() {
                 <div className="chatbot-status">מחובר</div>
               </div>
             </div>
-            <button className="chatbot-close" onClick={() => setIsOpen(false)}>
-              ✕
+            <button className="chatbot-close" onClick={() => setIsOpen(false)} aria-label="סגור צ'אט וחזרה לאתר">
+              <span className="chatbot-close-icon">✕</span>
+              <span className="chatbot-close-text">סגור</span>
             </button>
           </div>
 
