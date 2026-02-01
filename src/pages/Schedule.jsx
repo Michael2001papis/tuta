@@ -119,7 +119,7 @@ export default function Schedule() {
 
       {isLoggedIn && (
         <div className="edit-actions">
-          <button onClick={siteSettings.scheduleEditing ? endEdit : startEdit} className="edit-toggle">
+          <button type="button" onClick={siteSettings.scheduleEditing ? endEdit : startEdit} className="edit-toggle">
             {siteSettings.scheduleEditing ? 'סיום עריכה' : 'מצב עריכה'}
           </button>
         </div>
@@ -138,9 +138,11 @@ export default function Schedule() {
                 <span className="date-num">{date.getDate()}/{date.getMonth() + 1}</span>
                 {isLoggedIn && (siteSettings.scheduleEditing || editingDay === key) && (
                   <button
+                    type="button"
                     className="toggle-work"
                     onClick={() => toggleNonWorking(i)}
                     title={isNonWorking ? 'סמן כיום עבודה' : 'סמן כיום חופש'}
+                    aria-label={isNonWorking ? 'סמן כיום עבודה' : 'סמן כיום חופש'}
                   >
                     {isNonWorking ? '🔄' : '🚫'}
                   </button>

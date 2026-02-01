@@ -77,6 +77,7 @@ export default function Products() {
       {isLoggedIn && (
         <div className="edit-actions">
           <button
+            type="button"
             onClick={() => updateSiteSettings({ productsEditing: !siteSettings.productsEditing })}
             className="edit-toggle"
           >
@@ -121,7 +122,7 @@ export default function Products() {
                   rows={2}
                 />
                 <span className="char-count">{editForm.description.split(/\s+/).filter(Boolean).length}/30 מילים</span>
-                <button onClick={saveEdit}>שמור</button>
+                <button type="button" onClick={saveEdit}>שמור</button>
               </div>
             ) : (
               <>
@@ -131,7 +132,7 @@ export default function Products() {
                 </p>
                 {p.description && <p className="desc">{p.description}</p>}
                 {isLoggedIn && siteSettings.productsEditing && (
-                  <button className="edit-btn" onClick={() => startEdit(p)}>עריכה</button>
+                  <button type="button" className="edit-btn" onClick={() => startEdit(p)}>עריכה</button>
                 )}
               </>
             )}

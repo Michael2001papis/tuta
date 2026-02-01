@@ -184,7 +184,7 @@ export default function Header() {
               {loginError && <p className="login-error">{loginError}</p>}
               <button type="submit">כניסה</button>
             </form>
-            <button className="close-login" onClick={() => setShowLogin(false)}>סגור</button>
+            <button type="button" className="close-login" onClick={() => setShowLogin(false)}>סגור</button>
           </div>
         </div>,
         document.body

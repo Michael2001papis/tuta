@@ -19,6 +19,7 @@ export default function Footer() {
           <nav className="footer-nav">
             <Link to="/">עמוד הבית</Link>
             <Link to="/products">מוצרים</Link>
+            <Link to="/before-after">עבודות לפני ואחרי</Link>
             <Link to="/schedule">לוח זמנים</Link>
             <Link to="/contact">יצירת קשר</Link>
           </nav>

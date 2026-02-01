@@ -201,7 +201,7 @@ export default function Contact() {
             <span className="success-icon">✓</span>
             <h2>השליחה בוצעה בהצלחה!</h2>
             <p>Sofia Beauty Clinic תחזור אליכם בהקדם.</p>
-            <button onClick={() => navigate('/')}>חזרה לעמוד הבית</button>
+            <button type="button" onClick={() => navigate('/')}>חזרה לעמוד הבית</button>
             <p className="countdown">חזרה אוטומטית תוך {countdown} שניות</p>
           </div>
         </div>

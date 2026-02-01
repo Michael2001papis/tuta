@@ -56,7 +56,7 @@ export default function BeforeAfter() {
       {isLoggedIn && (
         <div className="add-section">
           {!adding ? (
-            <button onClick={() => setAdding(true)}>הוסף עבודה</button>
+            <button type="button" onClick={() => setAdding(true)}>הוסף עבודה</button>
           ) : (
             <div className="add-form">
               <input
@@ -74,8 +74,8 @@ export default function BeforeAfter() {
                 value={newItem.after}
                 onChange={e => setNewItem(f => ({ ...f, after: e.target.value }))}
               />
-              <button onClick={addItem}>הוסף</button>
-              <button onClick={() => setAdding(false)}>ביטול</button>
+              <button type="button" onClick={addItem}>הוסף</button>
+              <button type="button" onClick={() => setAdding(false)}>ביטול</button>
             </div>
           )}
         </div>
@@ -96,7 +96,7 @@ export default function BeforeAfter() {
               </div>
             </div>
             {isLoggedIn && (
-              <button className="remove-btn" onClick={() => removeItem(item.id)}>מחק</button>
+              <button type="button" className="remove-btn" onClick={() => removeItem(item.id)}>מחק</button>
             )}
           </div>
         ))}
