@@ -25,6 +25,7 @@
 .contact-card {
   flex: 1;
   min-width: 140px;
+  min-height: 48px;
   padding: var(--space-lg);
   background: var(--color-cream);
   border: 1px solid var(--color-border);
@@ -33,6 +34,15 @@
   text-align: center;
   transition: transform 0.2s, box-shadow 0.2s;
   box-shadow: var(--shadow-soft);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: inherit;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  box-sizing: border-box;
 }
 
 .contact-card:hover {
@@ -59,11 +69,20 @@
 .contact-form input,
 .contact-form textarea {
   width: 100%;
-  padding: 0.65rem 0.85rem;
+  min-height: 48px;
+  padding: 0.75rem 0.85rem;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
-  font-size: 1rem;
+  font-size: 16px;
   background: var(--color-bg);
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.contact-form textarea {
+  min-height: 120px;
+  resize: vertical;
 }
 
 .contact-form input:focus,
@@ -122,13 +141,18 @@
 }
 
 .submit-btn {
+  min-height: 48px;
   padding: 0.75rem 1.75rem;
   background: var(--color-primary-dark);
   color: #fff;
+  border: none;
   border-radius: var(--radius-sm);
   font-size: 1rem;
   font-weight: 500;
+  cursor: pointer;
   transition: background 0.2s, box-shadow 0.2s;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 .submit-btn:hover {
@@ -143,7 +167,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
+  z-index: 10000;
+  padding: max(1rem, env(safe-area-inset-top)) max(1rem, env(safe-area-inset-right)) max(1rem, env(safe-area-inset-bottom)) max(1rem, env(safe-area-inset-left));
+  box-sizing: border-box;
   animation: fadeIn 0.3s ease;
 }
 
@@ -152,9 +178,27 @@
   padding: var(--space-xl);
   border-radius: var(--radius);
   text-align: center;
-  max-width: 90vw;
+  width: 100%;
+  max-width: 400px;
   border: 1px solid var(--color-border);
   box-shadow: var(--shadow-elevated);
+}
+
+.success-modal button {
+  min-height: 48px;
+  width: 100%;
+  max-width: 280px;
+  margin: 1rem auto 0;
+  padding: 0.75rem 1.5rem;
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 .success-icon {
@@ -168,16 +212,99 @@
   margin-bottom: 0.5rem;
 }
 
-.success-modal button {
-  margin-top: 1rem;
-  padding: 0.6rem 1.5rem;
-  background: var(--color-primary);
-  color: #fff;
-  border-radius: 8px;
-}
-
 .countdown {
   margin-top: 0.75rem;
   font-size: 0.9rem;
   opacity: 0.8;
+}
+
+/* Mobile – יצירת קשר */
+@media (max-width: 768px) {
+  .contact-page {
+    width: 100%;
+    padding: 0;
+  }
+
+  .contact-info-cards {
+    flex-direction: column;
+    gap: var(--space-md);
+    margin-bottom: var(--space-xl);
+  }
+
+  .contact-card {
+    min-width: 0;
+    width: 100%;
+    min-height: 56px;
+    padding: var(--space-lg);
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .form-row .form-group {
+    flex: none;
+  }
+
+  .ratings-section {
+    padding: var(--space-lg);
+  }
+
+  .rating-row {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .rating-row label {
+    min-width: 100%;
+    width: 100%;
+  }
+
+  .rating-row input[type="range"] {
+    flex: 1;
+    min-width: 0;
+    max-width: none;
+    width: 100%;
+    height: 32px;
+  }
+
+  .rating-row span {
+    min-width: 28px;
+    text-align: left;
+  }
+
+  .submit-btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-page h1 {
+    font-size: 1.5rem;
+  }
+
+  .contact-intro {
+    font-size: 0.9375rem;
+  }
+
+  .contact-card .icon {
+    font-size: 1.25rem;
+  }
+
+  .contact-card span {
+    font-size: 1rem;
+  }
+
+  .contact-card small {
+    font-size: 0.8125rem;
+  }
+
+  .success-modal {
+    padding: var(--space-lg);
+  }
+
+  .success-modal button {
+    max-width: none;
+  }
 }

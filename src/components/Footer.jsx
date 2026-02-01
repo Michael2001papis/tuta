@@ -27,7 +27,7 @@ export default function Footer() {
         <div className="footer-section">
           <h4>יצירת קשר</h4>
           <a href="tel:0535305330" className="footer-contact">053-5305330</a>
-          <a href="mailto:sophiacosmetics@gmail.com" className="footer-contact">sophiacosmetics@gmail.com</a>
+          <a href="mailto:dvnka2@gmail.com" className="footer-contact">dvnka2@gmail.com</a>
           <a href="https://wa.me/972535305330" target="_blank" rel="noopener noreferrer" className="footer-contact">WhatsApp</a>
         </div>
       </div>
