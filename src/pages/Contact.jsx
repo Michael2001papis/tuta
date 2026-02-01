@@ -10,6 +10,10 @@ const RATING_LABELS = {
   atmosphere: 'אווירה',
 }
 
+const FORMSPREE_FORM_ID = import.meta.env.VITE_FORMSPREE_ID || ''
+const FORMSPREE_ENDPOINT = FORMSPREE_FORM_ID ? `https://formspree.io/f/${FORMSPREE_FORM_ID}` : ''
+const BUSINESS_EMAIL = 'dvnka2@gmail.com'
+
 export default function Contact() {
   const navigate = useNavigate()
   const [formData, setFormData] = useState({
@@ -24,10 +28,13 @@ export default function Contact() {
   })
   const [success, setSuccess] = useState(false)
   const [countdown, setCountdown] = useState(30)
+  const [sending, setSending] = useState(false)
+  const [submitError, setSubmitError] = useState('')
 
   const handleChange = (e) => {
     const { name, value } = e.target
     setFormData(prev => ({ ...prev, [name]: value }))
+    setSubmitError('')
   }
 
   const handleRatingChange = (key, value) => {
@@ -37,10 +44,60 @@ export default function Contact() {
     }))
   }
 
-  const handleSubmit = (e) => {
+  const buildMailtoBody = () => {
+    const r = formData.ratings
+    const ratingsText = `דירוג: שירות ${r.service}, הדרכה ${r.advice}, יחס ${r.treatment}, תשלום ${r.payment}, אווירה ${r.atmosphere}`
+    return [
+      `שם: ${formData.firstName} ${formData.lastName}`,
+      `טלפון: ${formData.phone}`,
+      formData.email ? `אימייל: ${formData.email}` : null,
+      formData.location ? `מיקום: ${formData.location}` : null,
+      `זמנים נוחים: ${formData.convenientTimes}`,
+      ratingsText,
+      formData.review ? `ביקורת: ${formData.review}` : null,
+    ].filter(Boolean).join('\n')
+  }
+
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    setSuccess(true)
-    setCountdown(30)
+    setSubmitError('')
+    setSending(true)
+
+    if (FORMSPREE_ENDPOINT) {
+      try {
+        const body = {
+          _replyto: formData.email || undefined,
+          _subject: `פנייה מהאתר – ${formData.firstName} ${formData.lastName}`,
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          phone: formData.phone,
+          email: formData.email || '(לא צוין)',
+          location: formData.location || '(לא צוין)',
+          convenientTimes: formData.convenientTimes,
+          ratings: `שירות: ${formData.ratings.service}, הדרכה: ${formData.ratings.advice}, יחס: ${formData.ratings.treatment}, תשלום: ${formData.ratings.payment}, אווירה: ${formData.ratings.atmosphere}`,
+          review: formData.review || '(לא צוין)',
+        }
+        const res = await fetch(FORMSPREE_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(body),
+        })
+        if (!res.ok) throw new Error('שגיאה בשליחה')
+        setSuccess(true)
+        setCountdown(30)
+      } catch (err) {
+        setSubmitError('שליחת הטופס נכשלה. נא לנסות שוב או ליצור קשר בטלפון 053-5305330.')
+      } finally {
+        setSending(false)
+      }
+    } else {
+      const subject = encodeURIComponent(`פנייה מהאתר – ${formData.firstName} ${formData.lastName}`)
+      const body = encodeURIComponent(buildMailtoBody())
+      window.location.href = `mailto:${BUSINESS_EMAIL}?subject=${subject}&body=${body}`
+      setSuccess(true)
+      setCountdown(30)
+      setSending(false)
+    }
   }
 
   useEffect(() => {
@@ -132,7 +189,10 @@ export default function Contact() {
           <textarea name="review" value={formData.review} onChange={handleChange} rows={4} />
         </div>
 
-        <button type="submit" className="submit-btn">שליחה</button>
+        {submitError && <p className="submit-error">{submitError}</p>}
+        <button type="submit" className="submit-btn" disabled={sending}>
+          {sending ? 'שולח...' : 'שליחה'}
+        </button>
       </form>
 
       {success && (
