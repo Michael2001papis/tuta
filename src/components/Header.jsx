@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { createPortal } from 'react-dom'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 import { useSettings } from '../context/SettingsContext'
@@ -35,10 +36,17 @@ export default function Header() {
   const { t } = useSettings()
   const navigate = useNavigate()
   const [showLogin, setShowLogin] = useState(false)
+  const [showMobileMenu, setShowMobileMenu] = useState(false)
   const [logoImgFailed, setLogoImgFailed] = useState(false)
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [loginError, setLoginError] = useState('')
+
+  const closeMobileMenu = () => setShowMobileMenu(false)
+  const goTo = (path) => {
+    navigate(path)
+    closeMobileMenu()
+  }
 
   const handleLoginSubmit = (e) => {
     e.preventDefault()
@@ -58,7 +66,7 @@ export default function Header() {
   return (
     <header className="header">
       <nav className="nav">
-        <Link to="/" className="logo" aria-label="סופיה - קוסמטיקה קלינית">
+        <Link to="/" className="logo" aria-label="סופיה - קוסמטיקה קלינית" onClick={closeMobileMenu}>
           {showImg ? (
             <img
               src="/assets/logo.png"
@@ -76,32 +84,74 @@ export default function Header() {
         <ul className="nav-links">
           {navItems.map(({ path, label }) => (
             <li key={path}>
-              <Link to={path}>{t(label)}</Link>
+              <Link to={path} onClick={closeMobileMenu}>{t(label)}</Link>
             </li>
           ))}
           {isLoggedIn && (
             <li>
-              <Link to="/user">{t('user')}</Link>
+              <Link to="/user" onClick={closeMobileMenu}>{t('user')}</Link>
             </li>
           )}
         </ul>
         <div className="header-actions">
           <Link to="/copyright" className="btn-copyright">{t('copyright')}</Link>
           {isLoggedIn ? (
-            <button className="btn-login" onClick={() => { logout(); navigate('/') }}>
+            <button type="button" className="btn-login" onClick={() => { logout(); navigate('/') }}>
               <span>{t('logout')}</span>
             </button>
           ) : (
-            <button className="btn-login" onClick={() => setShowLogin(true)}>
+            <button type="button" className="btn-login" onClick={() => setShowLogin(true)}>
               <span>{t('login')}</span>
             </button>
           )}
+          <button
+            type="button"
+            className="btn-hamburger"
+            aria-label="תפריט"
+            aria-expanded={showMobileMenu}
+            onClick={() => setShowMobileMenu(!showMobileMenu)}
+          >
+            <span className="hamburger-line" />
+            <span className="hamburger-line" />
+            <span className="hamburger-line" />
+          </button>
         </div>
       </nav>
+      <div className={`mobile-drawer ${showMobileMenu ? 'mobile-drawer-open' : ''}`} aria-hidden={!showMobileMenu}>
+        <div className="mobile-drawer-backdrop" onClick={closeMobileMenu} />
+        <div className="mobile-drawer-panel">
+          <button type="button" className="mobile-drawer-close" aria-label="סגור תפריט" onClick={closeMobileMenu}>×</button>
+          <ul className="mobile-nav-links">
+            {navItems.map(({ path, label }) => (
+              <li key={path}>
+                <Link to={path} onClick={() => goTo(path)}>{t(label)}</Link>
+              </li>
+            ))}
+            {isLoggedIn && (
+              <li>
+                <Link to="/user" onClick={() => goTo('/user')}>{t('user')}</Link>
+              </li>
+            )}
+          </ul>
+          <div className="mobile-drawer-actions">
+            <Link to="/copyright" className="btn-copyright mobile-btn" onClick={closeMobileMenu}>{t('copyright')}</Link>
+            {isLoggedIn ? (
+              <button type="button" className="btn-login mobile-btn" onClick={() => { logout(); goTo('/'); }}>
+                <span>{t('logout')}</span>
+              </button>
+            ) : (
+              <button type="button" className="btn-login mobile-btn" onClick={() => { setShowMobileMenu(false); setShowLogin(true); }}>
+                <span>{t('login')}</span>
+              </button>
+            )}
+          </div>
+        </div>
+      </div>
 
-      {showLogin && (
+      {showLogin && createPortal(
         <div className="login-overlay" onClick={() => setShowLogin(false)}>
           <div className="login-modal" onClick={e => e.stopPropagation()}>
+            <button type="button" className="login-modal-close" aria-label="סגור" onClick={() => setShowLogin(false)}>×</button>
             <h3>כניסה למשתמש</h3>
             <form onSubmit={handleLoginSubmit}>
               <input
@@ -123,7 +173,8 @@ export default function Header() {
             </form>
             <button className="close-login" onClick={() => setShowLogin(false)}>סגור</button>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </header>
   )

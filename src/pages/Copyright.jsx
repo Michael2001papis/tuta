@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
+import { createPortal } from 'react-dom'
 import { useNavigate } from 'react-router-dom'
 import './Copyright.css'
 
@@ -18,7 +19,11 @@ export default function Copyright() {
   const [showModal, setShowModal] = useState(true)
 
   const handleAgree = () => {
-    setAgreed(true)
+    setShowModal(false)
+    navigate('/')
+  }
+
+  const handleClose = () => {
     setShowModal(false)
     navigate('/')
   }
@@ -30,9 +35,10 @@ export default function Copyright() {
         <pre>{COPYRIGHT_TEXT}</pre>
       </div>
 
-      {showModal && (
-        <div className="copyright-overlay">
-          <div className="copyright-modal">
+      {showModal && createPortal(
+        <div className="copyright-overlay" onClick={handleClose}>
+          <div className="copyright-modal" onClick={e => e.stopPropagation()}>
+            <button type="button" className="copyright-modal-close" aria-label="סגור" onClick={handleClose}>×</button>
             <h2>חשוב – קריאה והסכמה</h2>
             <p>אנא קראו בעיון את תנאי זכויות היוצרים עד הסוף.</p>
             <div className="copyright-scroll">
@@ -42,11 +48,17 @@ export default function Copyright() {
               <input type="checkbox" checked={agreed} onChange={e => setAgreed(e.target.checked)} />
               קראתי והבנתי את זכויות היוצרים
             </label>
-            <button onClick={handleAgree} disabled={!agreed}>
-              אישור וחזרה לעמוד הבית
-            </button>
+            <div className="copyright-modal-actions">
+              <button onClick={handleAgree} disabled={!agreed}>
+                אישור וחזרה לעמוד הבית
+              </button>
+              <button type="button" className="copyright-close" onClick={handleClose}>
+                סגור
+              </button>
+            </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </div>
   )

@@ -46,10 +46,18 @@
   max-width: 1000px;
   margin: 0 auto;
   width: 100%;
+  box-sizing: border-box;
 }
 
 @media (max-width: 768px) {
   .main-content {
-    padding: var(--space-xl) var(--space-md);
+    padding: var(--space-xl) max(var(--space-md), env(safe-area-inset-left)) var(--space-xl) max(var(--space-md), env(safe-area-inset-right));
+    padding-bottom: max(var(--space-xl), env(safe-area-inset-bottom));
+  }
+}
+
+@media (max-width: 480px) {
+  .main-content {
+    padding: var(--space-lg) max(var(--space-sm), env(safe-area-inset-left)) var(--space-lg) max(var(--space-sm), env(safe-area-inset-right));
   }
 }

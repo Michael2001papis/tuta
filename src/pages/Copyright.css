@@ -19,26 +19,61 @@
 .copyright-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(31, 31, 31, 0.5);
-  backdrop-filter: blur(4px);
+  background: rgba(31, 31, 31, 0.7);
+  backdrop-filter: blur(8px);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
-  padding: var(--space-lg);
+  z-index: 10000;
+  padding: max(1rem, env(safe-area-inset-top)) max(1rem, env(safe-area-inset-right)) max(1rem, env(safe-area-inset-bottom)) max(1rem, env(safe-area-inset-left));
+  cursor: pointer;
+  box-sizing: border-box;
+  overflow-y: auto;
 }
 
 .copyright-modal {
+  position: relative;
   background: var(--color-bg);
   padding: var(--space-xl);
+  padding-top: calc(var(--space-xl) + 2.5rem);
   border-radius: var(--radius);
   max-width: 480px;
-  max-height: 90vh;
+  width: 100%;
+  max-height: calc(100vh - 2rem);
+  max-height: calc(100dvh - 2rem);
   overflow: hidden;
   display: flex;
   flex-direction: column;
   border: 1px solid var(--color-border);
   box-shadow: var(--shadow-elevated);
+  cursor: default;
+  margin: auto;
+}
+
+.copyright-modal-close {
+  position: absolute;
+  top: var(--space-md);
+  left: var(--space-md);
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  font-size: 1.75rem;
+  line-height: 1;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-soft);
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s, background 0.2s, border-color 0.2s;
+}
+
+.copyright-modal-close:hover {
+  color: var(--color-text);
+  background: rgba(212, 175, 55, 0.15);
+  border-color: var(--color-primary);
 }
 
 .copyright-modal h2 {
@@ -55,13 +90,15 @@
 
 .copyright-scroll {
   flex: 1;
+  min-height: 0;
   overflow-y: auto;
-  max-height: 240px;
+  max-height: 280px;
   padding: var(--space-md);
   background: var(--color-cream);
   border-radius: var(--radius-sm);
   margin-bottom: var(--space-md);
   border: 1px solid var(--color-border);
+  -webkit-overflow-scrolling: touch;
 }
 
 .copyright-scroll pre {
@@ -79,14 +116,25 @@
   font-size: 0.9375rem;
 }
 
+.copyright-modal-actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
 .copyright-modal button {
-  padding: 0.75rem;
+  min-height: 48px;
+  padding: 0.75rem 1rem;
   background: var(--color-primary-dark);
   color: #fff;
   border-radius: var(--radius-sm);
   width: 100%;
   font-weight: 500;
+  font-size: 1rem;
   transition: background 0.2s;
+  cursor: pointer;
+  border: none;
+  box-sizing: border-box;
 }
 
 .copyright-modal button:hover:not(:disabled) {
@@ -96,4 +144,31 @@
 .copyright-modal button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+.copyright-close {
+  background: transparent !important;
+  color: var(--color-text-soft) !important;
+}
+
+.copyright-close:hover {
+  color: var(--color-text) !important;
+}
+
+@media (max-width: 480px) {
+  .copyright-overlay {
+    padding: 0.75rem;
+    align-items: flex-start;
+    padding-top: max(2rem, env(safe-area-inset-top));
+  }
+
+  .copyright-modal {
+    max-width: 100%;
+    max-height: calc(100vh - 1.5rem);
+    max-height: calc(100dvh - 1.5rem);
+  }
+
+  .copyright-scroll {
+    max-height: 220px;
+  }
 }
