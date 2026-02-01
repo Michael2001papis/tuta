@@ -76,18 +76,18 @@ export default function Header() {
   return (
     <header className="header">
       <nav className="nav">
-        <Link to="/" className="logo" aria-label="סופיה - קוסמטיקה קלינית" onClick={closeMobileMenu}>
+        <Link to="/" className="logo" aria-label="Sofia Beauty Clinic" onClick={closeMobileMenu}>
           {showImg ? (
             <img
               src="/assets/logo.png"
-              alt="סופיה"
+              alt="Sofia Beauty Clinic"
               className="logo-img"
               onError={() => setLogoImgFailed(true)}
             />
           ) : (
             <span className="logo-text">
               <LogoMark />
-              <span className="logo-name">סופיה</span>
+              <span className="logo-name">Sofia Beauty Clinic</span>
             </span>
           )}
         </Link>

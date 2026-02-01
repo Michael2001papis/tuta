@@ -42,8 +42,8 @@ export default function BeforeAfter() {
     return (
       <div className="before-after-page">
         <h1>עבודות לפני ואחרי</h1>
-        <p>יצירות נבחרות של סופיה. צפייה נעימה לעין.</p>
-        <p className="empty-state">טרם נוספו עבודות. סופיה תעדכן בהקדם.</p>
+        <p>יצירות נבחרות של Sofia Beauty Clinic. צפייה נעימה לעין.</p>
+        <p className="empty-state">טרם נוספו עבודות. Sofia Beauty Clinic תעדכן בהקדם.</p>
       </div>
     )
   }

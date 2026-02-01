@@ -67,7 +67,7 @@ export default function Products() {
       <h1>מוצרים</h1>
 
       {!isLoggedIn && siteSettings.productsEditing && (
-        <div className="editing-notice">סופיה מעדכנת כרגע את רשימת המוצרים. התצוגה תתעדכן בהקדם.</div>
+        <div className="editing-notice">Sofia Beauty Clinic מעדכנת כרגע את רשימת המוצרים. התצוגה תתעדכן בהקדם.</div>
       )}
 
       <p className="products-desc">

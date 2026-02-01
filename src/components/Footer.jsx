@@ -9,8 +9,8 @@ export default function Footer() {
     <footer className="footer">
       <div className="footer-content">
         <div className="footer-section">
-          <h3>סופיה</h3>
-          <p>קוסמטיקה קלינית מקצועית</p>
+          <h3>Sofia Beauty Clinic</h3>
+          <p>קליניקת יופי מקצועית</p>
           <p className="footer-tagline">ניסיון של למעלה מעשור</p>
         </div>
 
@@ -33,7 +33,7 @@ export default function Footer() {
       </div>
 
       <div className="footer-bottom">
-        <p>&copy; {currentYear} סופיה - קוסמטיקה קלינית. כל הזכויות שמורות.</p>
+        <p>&copy; {currentYear} Sofia Beauty Clinic. כל הזכויות שמורות.</p>
         <Link to="/copyright" className="footer-legal">תנאי שימוש וזכויות יוצרים</Link>
       </div>
     </footer>

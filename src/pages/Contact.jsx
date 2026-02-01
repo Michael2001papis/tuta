@@ -106,7 +106,7 @@ export default function Contact() {
 
         <div className="form-group">
           <label>זמנים שנוחים לכם *</label>
-          <p className="hint">ציינו מתי נוח לכם – סופיה תחזור אליכם ותתאם איתכם.</p>
+          <p className="hint">ציינו מתי נוח לכם – Sofia Beauty Clinic תחזור אליכם ותתאם איתכם.</p>
           <textarea name="convenientTimes" value={formData.convenientTimes} onChange={handleChange} rows={3} required />
         </div>
 
@@ -140,7 +140,7 @@ export default function Contact() {
           <div className="success-modal">
             <span className="success-icon">✓</span>
             <h2>השליחה בוצעה בהצלחה!</h2>
-            <p>סופיה תחזור אליכם בהקדם.</p>
+            <p>Sofia Beauty Clinic תחזור אליכם בהקדם.</p>
             <button onClick={() => navigate('/')}>חזרה לעמוד הבית</button>
             <p className="countdown">חזרה אוטומטית תוך {countdown} שניות</p>
           </div>

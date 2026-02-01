@@ -4,9 +4,9 @@ import { useSettings } from '../context/SettingsContext'
 import './Home.css'
 
 const socialLinks = [
-  { name: 'Instagram', url: 'https://instagram.com/sophia_cosmetics' },
-  { name: 'Facebook', url: 'https://facebook.com/sophiacosmetics' },
-  { name: 'TikTok', url: 'https://tiktok.com/@sophia_cosmetics' },
+  { name: 'Instagram', url: 'https://instagram.com/sofia.queen_salon' },
+  { name: 'Threads', url: 'https://threads.net/@sofia.queen_salon' },
+  { name: 'Facebook – סופיה אלכסייב', url: 'https://www.facebook.com/sofia.queen.salon' },
 ]
 
 const services = [
@@ -69,7 +69,7 @@ export default function Home() {
         <section className="about-section">
           <div className="about-content">
             <h2>מקצועיות ברמה הגבוהה ביותר</h2>
-            <p>סופיה מחזיקה בתעודות מקצועיות מובילות בתחום הקוסמטיקה הקלינית ומביאה ניסיון עשיר של למעלה מעשור. כל טיפול מבוצע בדיוק ובקפידה, תוך התאמה אישית לצרכי הלקוח.</p>
+            <p>Sofia Beauty Clinic מחזיקה בתעודות מקצועיות מובילות בתחום קליניקת היופי ומביאה ניסיון עשיר של למעלה מעשור. כל טיפול מבוצע בדיוק ובקפידה, תוך התאמה אישית לצרכי הלקוח.</p>
             <Link to="/before-after" className="btn-text">צפייה בעבודות שלנו</Link>
           </div>
         </section>

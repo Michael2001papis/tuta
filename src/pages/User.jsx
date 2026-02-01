@@ -20,7 +20,7 @@ export default function User() {
 
   return (
     <div className="user-page">
-      <h1>עמוד משתמש – סופיה</h1>
+      <h1>עמוד משתמש – Sofia Beauty Clinic</h1>
       <p className="user-intro">מכאן יש לך שליטה מלאה על תצוגת האתר ללקוחות.</p>
 
       <section className="user-section">

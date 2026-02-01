@@ -32,8 +32,8 @@ export function SettingsProvider({ children }) {
     try {
       const saved = localStorage.getItem('sophia_site_settings')
       return saved ? JSON.parse(saved) : {
-        homeTitle: 'ברוכים הבאים לסופיה - קוסמטיקה קלינית',
-        homeSubtitle: 'טיפולים מקצועיים עם ניסיון רב ותעודות',
+        homeTitle: 'ברוכים הבאים ל-Sofia Beauty Clinic',
+        homeSubtitle: 'קליניקת יופי – טיפולים מקצועיים עם ניסיון רב ותעודות',
         showSocialLinks: true,
         showCertificates: true,
         scheduleEditing: false,
@@ -41,8 +41,8 @@ export function SettingsProvider({ children }) {
       }
     } catch {
       return {
-        homeTitle: 'ברוכים הבאים לסופיה - קוסמטיקה קלינית',
-        homeSubtitle: 'טיפולים מקצועיים עם ניסיון רב ותעודות',
+        homeTitle: 'ברוכים הבאים ל-Sofia Beauty Clinic',
+        homeSubtitle: 'קליניקת יופי – טיפולים מקצועיים עם ניסיון רב ותעודות',
         showSocialLinks: true,
         showCertificates: true,
         scheduleEditing: false,

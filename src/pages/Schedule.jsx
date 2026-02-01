@@ -108,13 +108,13 @@ export default function Schedule() {
       <h1>לוח זמנים</h1>
 
       {!isLoggedIn && siteSettings.scheduleEditing && (
-        <div className="editing-notice">סופיה מעדכנת כרגע את לוח הזמנים. התצוגה תתעדכן בהקדם.</div>
+        <div className="editing-notice">Sofia Beauty Clinic מעדכנת כרגע את לוח הזמנים. התצוגה תתעדכן בהקדם.</div>
       )}
 
       <p className="schedule-desc">
         {isLoggedIn
           ? 'ניתן לערוך את לוח הזמנים. עם הגעת שבת, השבוע הקודם יתאפס.'
-          : 'תצוגת לוח הזמנים – עדכונים על ידי סופיה.'}
+          : 'תצוגת לוח הזמנים – עדכונים על ידי Sofia Beauty Clinic.'}
       </p>
 
       {isLoggedIn && (

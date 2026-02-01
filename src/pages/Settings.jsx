@@ -59,7 +59,7 @@ export default function Settings() {
 
       {isLoggedIn && (
         <section className="settings-section sophia-settings">
-          <h2>הגדרות למשתמש (סופיה)</h2>
+          <h2>הגדרות למשתמש (Sofia Beauty Clinic)</h2>
           <p className="section-desc">שליטה מלאה על תצוגת האתר ללקוחות.</p>
 
           <div className="setting-item">
@@ -91,7 +91,7 @@ export default function Settings() {
               />
               הצג קישורי רשתות חברתיות
             </label>
-            <p className="setting-hint">הצג את כפתורי Instagram, Facebook, TikTok.</p>
+            <p className="setting-hint">הצג את כפתורי Instagram, Threads, Facebook.</p>
           </div>
 
           <div className="setting-item checkbox">
