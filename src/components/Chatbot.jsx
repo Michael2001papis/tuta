@@ -214,24 +214,37 @@ export default function Chatbot() {
         </button>
       )}
 
-      {/* חלון הצ'אט */}
+      {/* חלון הצ'אט + רקע ללחיצה מחוץ (סגירה במובייל) */}
       {isOpen && (
-        <div className="chatbot-window">
-          <div className="chatbot-header">
-            <div className="chatbot-header-info">
-              <div className="chatbot-avatar">
-                <span>💎</span>
+        <>
+          <div
+            className="chatbot-backdrop"
+            aria-hidden="true"
+            onClick={() => setIsOpen(false)}
+            onTouchEnd={(e) => { e.preventDefault(); setIsOpen(false); }}
+          />
+          <div className="chatbot-window" onClick={(e) => e.stopPropagation()}>
+            <div className="chatbot-header">
+              <div className="chatbot-header-info">
+                <div className="chatbot-avatar">
+                  <span>💎</span>
+                </div>
+                <div>
+                  <div className="chatbot-title">עוזר וירטואלי</div>
+                  <div className="chatbot-status">מחובר</div>
+                </div>
               </div>
-              <div>
-                <div className="chatbot-title">עוזר וירטואלי</div>
-                <div className="chatbot-status">מחובר</div>
-              </div>
+              <button
+                type="button"
+                className="chatbot-close"
+                aria-label="סגור צ'אט וחזרה לאתר"
+                onClick={() => setIsOpen(false)}
+                onTouchEnd={(e) => { e.preventDefault(); setIsOpen(false); }}
+              >
+                <span className="chatbot-close-icon">✕</span>
+                <span className="chatbot-close-text">סגור</span>
+              </button>
             </div>
-            <button className="chatbot-close" onClick={() => setIsOpen(false)} aria-label="סגור צ'אט וחזרה לאתר">
-              <span className="chatbot-close-icon">✕</span>
-              <span className="chatbot-close-text">סגור</span>
-            </button>
-          </div>
 
           <div className="chatbot-messages">
             {messages.map((msg, idx) => (
@@ -300,6 +313,7 @@ export default function Chatbot() {
             </button>
           </div>
         </div>
+        </>
       )}
     </>
   )
