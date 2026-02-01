@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { createPortal } from 'react-dom'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
@@ -43,10 +43,20 @@ export default function Header() {
   const [loginError, setLoginError] = useState('')
 
   const closeMobileMenu = () => setShowMobileMenu(false)
-  const goTo = (path) => {
-    navigate(path)
-    closeMobileMenu()
-  }
+
+  useEffect(() => {
+    if (showMobileMenu) {
+      document.body.style.overflow = 'hidden'
+      document.body.style.touchAction = 'none'
+    } else {
+      document.body.style.overflow = ''
+      document.body.style.touchAction = ''
+    }
+    return () => {
+      document.body.style.overflow = ''
+      document.body.style.touchAction = ''
+    }
+  }, [showMobileMenu])
 
   const handleLoginSubmit = (e) => {
     e.preventDefault()
@@ -117,36 +127,39 @@ export default function Header() {
           </button>
         </div>
       </nav>
-      <div className={`mobile-drawer ${showMobileMenu ? 'mobile-drawer-open' : ''}`} aria-hidden={!showMobileMenu}>
-        <div className="mobile-drawer-backdrop" onClick={closeMobileMenu} />
-        <div className="mobile-drawer-panel">
-          <button type="button" className="mobile-drawer-close" aria-label="סגור תפריט" onClick={closeMobileMenu}>×</button>
-          <ul className="mobile-nav-links">
-            {navItems.map(({ path, label }) => (
-              <li key={path}>
-                <Link to={path} onClick={() => goTo(path)}>{t(label)}</Link>
-              </li>
-            ))}
-            {isLoggedIn && (
-              <li>
-                <Link to="/user" onClick={() => goTo('/user')}>{t('user')}</Link>
-              </li>
-            )}
-          </ul>
-          <div className="mobile-drawer-actions">
-            <Link to="/copyright" className="btn-copyright mobile-btn" onClick={closeMobileMenu}>{t('copyright')}</Link>
-            {isLoggedIn ? (
-              <button type="button" className="btn-login mobile-btn" onClick={() => { logout(); goTo('/'); }}>
-                <span>{t('logout')}</span>
-              </button>
-            ) : (
-              <button type="button" className="btn-login mobile-btn" onClick={() => { setShowMobileMenu(false); setShowLogin(true); }}>
-                <span>{t('login')}</span>
-              </button>
-            )}
+      {showMobileMenu && createPortal(
+        <div className="mobile-drawer mobile-drawer-open" aria-hidden="false">
+          <div className="mobile-drawer-backdrop" onClick={closeMobileMenu} aria-hidden="true" />
+          <div className="mobile-drawer-panel">
+            <button type="button" className="mobile-drawer-close" aria-label="סגור תפריט" onClick={closeMobileMenu}>×</button>
+            <ul className="mobile-nav-links">
+              {navItems.map(({ path, label }) => (
+                <li key={path}>
+                  <Link to={path} onClick={closeMobileMenu}>{t(label)}</Link>
+                </li>
+              ))}
+              {isLoggedIn && (
+                <li>
+                  <Link to="/user" onClick={closeMobileMenu}>{t('user')}</Link>
+                </li>
+              )}
+            </ul>
+            <div className="mobile-drawer-actions">
+              <Link to="/copyright" className="btn-copyright mobile-btn" onClick={closeMobileMenu}>{t('copyright')}</Link>
+              {isLoggedIn ? (
+                <button type="button" className="btn-login mobile-btn" onClick={() => { logout(); navigate('/'); closeMobileMenu(); }}>
+                  <span>{t('logout')}</span>
+                </button>
+              ) : (
+                <button type="button" className="btn-login mobile-btn" onClick={() => { setShowMobileMenu(false); setShowLogin(true); }}>
+                  <span>{t('login')}</span>
+                </button>
+              )}
+            </div>
           </div>
-        </div>
-      </div>
+        </div>,
+        document.body
+      )}
 
       {showLogin && createPortal(
         <div className="login-overlay" onClick={() => setShowLogin(false)}>

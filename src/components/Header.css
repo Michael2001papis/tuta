@@ -375,8 +375,10 @@
   justify-content: center;
   align-items: center;
   gap: 5px;
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  min-height: 48px;
   padding: 0;
   background: transparent;
   border: 1px solid var(--color-border);
@@ -384,10 +386,13 @@
   cursor: pointer;
   color: var(--color-text);
   transition: background 0.2s, border-color 0.2s;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
-.btn-hamburger:hover {
-  background: rgba(212, 175, 55, 0.1);
+.btn-hamburger:hover,
+.btn-hamburger:active {
+  background: rgba(212, 175, 55, 0.12);
   border-color: var(--color-primary);
 }
 
@@ -412,32 +417,22 @@
   transform: translateY(-7px) rotate(-45deg);
 }
 
-/* Mobile drawer */
+/* Mobile drawer - rendered in body via Portal, above header */
 .mobile-drawer {
   position: fixed;
   inset: 0;
-  z-index: 99;
-  pointer-events: none;
-  visibility: hidden;
-  transition: visibility 0.3s ease;
-}
-
-.mobile-drawer-open {
+  z-index: 10001;
   pointer-events: auto;
-  visibility: visible;
+  animation: overlayFadeIn 0.25s ease;
 }
 
 .mobile-drawer-backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(4px);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.mobile-drawer-open .mobile-drawer-backdrop {
-  opacity: 1;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(6px);
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 .mobile-drawer-panel {
@@ -445,33 +440,43 @@
   top: 0;
   right: 0;
   bottom: 0;
-  width: min(320px, 85vw);
+  width: min(300px, 88vw);
   max-width: 100%;
   background: var(--color-accent);
-  border-left: 1px solid var(--color-border);
-  box-shadow: -8px 0 32px rgba(0, 0, 0, 0.4);
+  border-inline-start: 1px solid var(--color-border);
+  box-shadow: -8px 0 32px rgba(0, 0, 0, 0.45);
   display: flex;
   flex-direction: column;
   padding: var(--space-xl);
   padding-top: max(var(--space-xl), env(safe-area-inset-top));
-  padding-right: max(var(--space-xl), env(safe-area-inset-right));
-  transform: translateX(100%);
-  transition: transform 0.3s ease;
+  padding-inline-end: max(var(--space-xl), env(safe-area-inset-right));
   overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  z-index: 1;
+  animation: drawerSlideIn 0.3s ease;
 }
 
-.mobile-drawer-open .mobile-drawer-panel {
-  transform: translateX(0);
+@keyframes overlayFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes drawerSlideIn {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
 }
 
 .mobile-drawer-close {
   position: absolute;
   top: max(var(--space-md), env(safe-area-inset-top));
   left: var(--space-md);
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  min-height: 48px;
   padding: 0;
-  font-size: 1.75rem;
+  font-size: 1.875rem;
   line-height: 1;
   background: transparent;
   border: none;
@@ -482,11 +487,14 @@
   align-items: center;
   justify-content: center;
   transition: color 0.2s, background 0.2s;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
-.mobile-drawer-close:hover {
+.mobile-drawer-close:hover,
+.mobile-drawer-close:active {
   color: var(--color-text);
-  background: rgba(212, 175, 55, 0.1);
+  background: rgba(212, 175, 55, 0.15);
 }
 
 .mobile-nav-links {
@@ -500,20 +508,25 @@
 
 .mobile-nav-links a {
   display: block;
-  padding: var(--space-md) var(--space-lg);
+  padding: 14px var(--space-lg);
+  min-height: 48px;
+  box-sizing: border-box;
   color: var(--color-text);
   text-decoration: none;
   font-size: 1.0625rem;
   font-weight: 500;
   border-radius: var(--radius-sm);
   transition: background 0.2s, color 0.2s;
-  border-right: 3px solid transparent;
+  border-inline-end: 3px solid transparent;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
-.mobile-nav-links a:hover {
-  background: rgba(212, 175, 55, 0.1);
+.mobile-nav-links a:hover,
+.mobile-nav-links a:active {
+  background: rgba(212, 175, 55, 0.12);
   color: var(--color-primary);
-  border-right-color: var(--color-primary);
+  border-inline-end-color: var(--color-primary);
 }
 
 .mobile-drawer-actions {
