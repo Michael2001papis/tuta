@@ -1,3 +1,5 @@
+/* Chatbot – מעל Header (100) ותפריט מובייל (10001) כדי שכפתור הסגירה ייראה */
+
 /* Chatbot Toggle Button */
 .chatbot-toggle {
   position: fixed;
@@ -13,7 +15,7 @@
   color: var(--color-bg);
   box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
   transition: all 0.3s ease;
-  z-index: 98;
+  z-index: 10002;
   border: none;
   cursor: pointer;
   animation: chatbotPulse 3s ease-in-out infinite;
@@ -35,7 +37,7 @@
   box-shadow: 0 6px 32px rgba(212, 175, 55, 0.6);
 }
 
-/* Backdrop - לחיצה מחוץ לצ'אט סוגרת (חשוב למובייל / Galaxy) */
+/* Backdrop - לחיצה מחוץ לצ'אט סוגרת (מעל Header כדי שכפתור הסגירה ייראה) */
 .chatbot-backdrop {
   position: fixed;
   inset: 0;
@@ -44,13 +46,13 @@
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.4);
-  z-index: 97;
+  z-index: 10001;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
 }
 
-/* Chatbot Window */
+/* Chatbot Window – מעל ה-Header (z-index: 100) כדי שכפתור ✕ סגור יופיע למעלה */
 .chatbot-window {
   position: fixed;
   bottom: 2rem;
@@ -66,7 +68,7 @@
   box-shadow: 0 12px 48px rgba(0, 0, 0, 0.6);
   display: flex;
   flex-direction: column;
-  z-index: 98;
+  z-index: 10002;
   animation: chatbotSlideIn 0.3s ease;
   pointer-events: auto;
 }
