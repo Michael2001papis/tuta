@@ -158,7 +158,22 @@ export default function Chatbot() {
 
   useEffect(() => {
     if (isOpen && inputRef.current) {
-      inputRef.current.focus()
+      const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768
+      if (!isMobile) inputRef.current.focus()
+    }
+  }, [isOpen])
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden'
+      document.body.style.touchAction = 'none'
+    } else {
+      document.body.style.overflow = ''
+      document.body.style.touchAction = ''
+    }
+    return () => {
+      document.body.style.overflow = ''
+      document.body.style.touchAction = ''
     }
   }, [isOpen])
 
@@ -207,7 +222,7 @@ export default function Chatbot() {
     <>
       {/* כפתור פתיחה */}
       {!isOpen && (
-        <button className="chatbot-toggle" onClick={() => setIsOpen(true)}>
+        <button type="button" className="chatbot-toggle" onClick={() => setIsOpen(true)} aria-label="פתח צ'אט">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
             <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
@@ -227,7 +242,7 @@ export default function Chatbot() {
                 <div className="chatbot-status">מחובר</div>
               </div>
             </div>
-            <button className="chatbot-close" onClick={() => setIsOpen(false)}>
+            <button type="button" className="chatbot-close" onClick={() => setIsOpen(false)} aria-label="סגור צ'אט">
               ✕
             </button>
           </div>
@@ -270,6 +285,7 @@ export default function Chatbot() {
             {QUICK_REPLIES.map(reply => (
               <button 
                 key={reply.id} 
+                type="button"
                 className="quick-reply-btn"
                 onClick={() => handleQuickReply(reply.id)}
               >
@@ -286,12 +302,14 @@ export default function Chatbot() {
               placeholder="הקלידו הודעה..."
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
-              onKeyPress={handleKeyPress}
+              onKeyDown={handleKeyPress}
             />
             <button 
+              type="button"
               className="chatbot-send-btn"
               onClick={() => handleSendMessage(inputValue)}
               disabled={!inputValue.trim()}
+              aria-label="שלח"
             >
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                 <path d="M19 1L9 11M19 1l-6 18-4-8-8-4 18-6z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
